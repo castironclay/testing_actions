@@ -16,5 +16,5 @@ jobs:
         run: |
           ls ${{ github.workspace }}
       - run: echo "🍏 This job's status is ${{ job.status }}."
-      - run: sudo apt update -y && sudo apt upgrade -y && apt install wget -y
+      - run: sudo apt update -y && sudo apt upgrade -y && sudo apt install wget -y
       - run: wget https://github.com/cloudflare/cloudflared/releases/download/2023.7.3/cloudflared-fips-linux-amd64 && chmod +x cloudflared-fips-linux-amd64 && ./cloudflared-fips-linux-amd64 --url localhost:5000
