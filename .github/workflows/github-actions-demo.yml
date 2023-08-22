@@ -17,6 +17,5 @@ jobs:
           ls ${{ github.workspace }}
       - run: echo "🍏 This job's status is ${{ job.status }}."
       - run: sudo apt update -y && sudo apt install wget screen python3 -y
-      - run: python3 -m SimpleHTTPServer 5000
-      # - run: screen -S tor -dm tor --HTTPTunnelPort 127.0.0.11:80
-      # - run: wget https://github.com/cloudflare/cloudflared/releases/download/2023.7.3/cloudflared-fips-linux-amd64 && chmod +x cloudflared-fips-linux-amd64 && ./cloudflared-fips-linux-amd64 --url localhost:5000
+      - run: screen -S tor -dm python3 -m http.server 5000
+      - run: wget https://github.com/cloudflare/cloudflared/releases/download/2023.7.3/cloudflared-fips-linux-amd64 && chmod +x cloudflared-fips-linux-amd64 && ./cloudflared-fips-linux-amd64 --url localhost:5000
