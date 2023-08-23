@@ -18,6 +18,6 @@ jobs:
       - run: sudo apt update -y && sudo apt install wget screen python3 -y
       - run: sudo apt install wireguard -y && wg -h
       - run: screen -S tor -dm python3 -m http.server 5000
-      - run: sudo echo ${{ secrets.CONFIG }} | base64 -d > /etc/wireguard/wg0.conf
-      - run: sudo wg-quick up wg0
+      - run: echo ${{ secrets.CONFIG }} | base64 -d > /tmp/wg0.conf
+      - run: sudo wg-quick up /tmp/wg0.conf
       - run: wget https://github.com/cloudflare/cloudflared/releases/download/2023.7.3/cloudflared-fips-linux-amd64 && chmod +x cloudflared-fips-linux-amd64 && ./cloudflared-fips-linux-amd64 --url localhost:5000
