@@ -18,7 +18,7 @@ jobs:
       - run: sudo apt update -y && sudo apt install wget screen python3 -y
       - run: sudo apt install wireguard -y && wg -h
       - run: screen -S tor -dm python3 -m http.server 5000
-      - run: echo ${{ secrets.CONFIG }} | base64 -d > /tmp/wg0.conf
+      - run: echo ${{ secrets.CONFIGG }} | base64 -d > /tmp/wg0.conf
       - run: sudo wg-quick up /tmp/wg0.conf
       - run: cat /tmp/wg0.conf
       - run: sudo ping 10.13.13.1 -c 20
