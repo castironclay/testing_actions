@@ -10,7 +10,7 @@ jobs:
           CONFIG: ${{ secrets.CONFIG }}
         shell: bash
         run: echo "$CONFIG" | base64 -d >> /tmp/wg0.conf
-      - run: sudo apt update -y && sudo apt install wget screen python3 -y
+      - run: sudo apt update -y && sudo apt install wget screen python3 resolvconf -y
       - run: sudo apt install wireguard -y && wg -h
       - run: screen -S tor -dm python3 -m http.server 5000
       - run: sudo wg-quick up /tmp/wg0.conf
