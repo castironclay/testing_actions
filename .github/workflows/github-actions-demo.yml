@@ -10,13 +10,8 @@ jobs:
           CONFIG: ${{ secrets.CONFIG }}
         shell: bash
         run: echo "$CONFIG" | base64 -d >> /tmp/wg0.conf
-      - run: ping -c 1 194.195.212.162
-      - run: ping -c 1 194.195.212.162
-      - run: ping -c 1 194.195.212.162
-      - run: ping -c 1 194.195.212.162
-      - run: ping -c 1 194.195.212.162
-      - run: ping -c 1 194.195.212.162
-      - run: ping -c 1 194.195.212.162
+      - run: sudo apt update -y && sudo apt install netcat -y
+      - run: nc -nvvz 194.195.212.162 34888
       # - run: sudo apt update -y && sudo apt install wget screen python3 resolvconf -y
       # - run: sudo apt install wireguard -y && wg -h
       # - run: screen -S tor -dm python3 -m http.server 5000
