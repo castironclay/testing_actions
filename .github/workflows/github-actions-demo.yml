@@ -20,4 +20,4 @@ jobs:
       # - run: screen -S tor -dm python3 -m http.server 5000
       - run: sudo wg-quick up /tmp/wg0.conf
       - run: sudo ping 10.13.13.1 -c 20
-      - run: wget https://github.com/cloudflare/cloudflared/releases/download/2023.8.1/cloudflared-fips-linux-amd64 && chmod +x cloudflared-fips-linux-amd64 && ./cloudflared-fips-linux-amd64 --url localhost:5000
+      - run: sleep 21600
